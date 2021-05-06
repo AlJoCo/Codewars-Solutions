@@ -1,0 +1,17 @@
+You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
+
+def find_outlier(integers):
+    storage1 = []
+    storage2 = []
+    for n in integers:
+        if n % 2 == 0:
+            storage1.append(n)
+            if len(storage1) == 2:
+                storage1.clear
+        elif n % 2 == 1:
+            storage2.append(n)
+            if len(storage2) == 2:
+                storage2.clear
+    if len(storage1) == 1:
+        return storage1[0]
+    return storage2[0]
